@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4" style="margin-top:30px">
+            <img class="img-responsive" src="images/SI_name.svg" alt="Speaking Images Private Limited">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4" style="margin-top:30px">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 style="font-family:cursive">LOGIN</h4>
+                </div>
+                <div class="panel-body">
+                    <form name="loginForm" ng-submit="submit(loginForm.$valid)" ng-controller="loginController" novalidate>
+                        <div class="form-group" ng-class="{'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine}">
+                            <label class="sr-only" for="email">Email Address:</label>
+                            <input class="form-control" ng-model="login.email" type="email" name="email" id="email" placeholder="Enter Email" required>
+                            <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Enter a valid email</p>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine}">
+                            <label class="sr-only" for="password">Passowrd:</label>
+                            <a class="pull-right" href="">Forgot Password?</a>
+                            <input class="form-control" ng-model="login.password" type="password" name="password" id="password" placeholder="Enter Password" required>
+                            <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Password is required</p>
+                        </div>
+                        <button type="submit" class="btn btn-info btn-block" ng-disabled="loginForm.$invalid">Submit</button>
+                        <div class="text-center">
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember me</label>
+                            </div>  
+                            <div class="divider-line">
+                                <div class="divider-text">New User?</div>
+                            </div>
+                            <a ui-sref="register">Sign Up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
