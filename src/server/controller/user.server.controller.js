@@ -15,7 +15,7 @@ exports.register = function(req, res, next) {
     }).catch(function(err) {
         if(err.code == 11000) {
             err.status = 409;
-            err.message = "Email Id already Exists.";
+            err.message = "User with the given Email Id already Exist.";
         }
         next(err);
     });

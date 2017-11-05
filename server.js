@@ -21,11 +21,11 @@ var routes = require('./src/server/routes/router');
 app.use('/api', routes);
 
 //catch 404 and forward to error handler
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
     var err = new Error('File Not Found');
     err.status = 404;
     next(err);
-});
+});*/
 
 //error handler
 //define as the last app.use callback
