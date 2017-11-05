@@ -1,32 +1,7 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-//var session = require('express-session');
-//var mongoStore = require('connect-mongo')(session);
-
-//connect to mongoDB
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/testForAuth', {
-    useMongoClient: true
-});
-var db = mongoose.connection;
-
-//handle mongoDB error
-db.on('error', console.error.bind(console, 'connection error:'));
-/*db.once('open', function() {
-    //we 're connected!
-});*/
-
-//use sessions for tracking logins
-/*app.use(session({
-    secret: 'work hard',
-    resave: true,
-    saveUninitialized: false,
-    store: new mongoStore({
-        mongooseConnection: db
-    })
-}));*/
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const db = require('./src/server/config/db');
 
 //parse incoming requests
 app.use(bodyParser.json());
@@ -39,7 +14,7 @@ app.use(function(req, res, next) {
 });
 
 //include routes
-var routes = require('./src/server/routes/router');
+var routes = require('./src/server/routes/  router');
 app.use('/', routes);
 
 //catch 404 and forward to error handler
