@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var user = require('../models/user');
+var user = require('../models/user.server.model');
 
 router.get('/', function(req, res, next) {
     res.send('Server is running');

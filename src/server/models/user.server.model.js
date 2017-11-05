@@ -26,7 +26,7 @@ var userSchema = new mongoose.Schema({
 
 //authenticate input against database
 userSchema.statics.authenticate = function (email, password, callback) {
-    user.findOne({ email: email })
+    userModel.findOne({ email: email })
       .exec(function (err, user) {
         if (err) {
           return callback(err)
@@ -58,5 +58,5 @@ userSchema.pre('save', function (next) {
     })
 });
 
-var user = mongoose.model('user', userSchema);
-module.exports = user;
+var userModel = mongoose.model('user', userSchema);
+module.exports = userModel;

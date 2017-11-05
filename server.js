@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 });
 
 //include routes
-var routes = require('./src/server/routes/  router');
+var routes = require('./src/server/routes/router');
 app.use('/', routes);
 
 //catch 404 and forward to error handler
@@ -30,10 +30,6 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.send(err.message);
 });
-
-/*app.get('/', function(req, res) {
-    res.send('Server is running');
-});*/
 
 app.listen(8080, function() {
     console.log('Express app listening on port 8080')
