@@ -33,6 +33,10 @@
                             </div>
                             <a ui-sref="register">Sign Up</a>
                         </div>
+                        <div class="alert alert-danger alert-dismissable fade in" data-ng-show="loginFailed">
+                                <a href="#" class="close" data-ng-click="loginFailed = false" aria-label="close">&times;</a>
+                                <strong>{{errorMessage}}</strong>
+                        </div>
                     </form>
                 </div>
             </div>

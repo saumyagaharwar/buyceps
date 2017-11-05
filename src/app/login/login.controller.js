@@ -1,5 +1,5 @@
 angular.module('siplApp')
-.controller('loginController', [ '$scope', '$http', function($scope, $http) {
+.controller('loginController', [ '$scope', '$http','$state', function($scope, $http, $state) {
     console.log("loginController");
 
     $scope.submit = function(isValid) {
@@ -8,8 +8,11 @@ angular.module('siplApp')
             $http.post('http://localhost:8080/authenticate', $scope.login)
             .then(function(response) {
                 console.log("login successfull");
+                $state.go('home');
             }).catch(function(data, status) {
                 console.log('Error: ', status, data);
+                $scope.errorMessage = "Invalid email or password !"
+                $scope.loginFailed = true;
             });
         }
     };
