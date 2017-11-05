@@ -5,13 +5,15 @@ angular.module('siplApp')
     $scope.submit = function(isValid) {
         console.log($scope.user);
         if(isValid) {
-            $http.post('http://localhost:8080/users', $scope.user)
+            $http.post('http://localhost:8080/api/users', $scope.user)
             .then(function(response) {
                 console.log("user created");
                 $scope.successMsg = "Registration Successfull !";
                 $scope.registerSuccess = true;
-            }).catch(function(data, status) {
-                console.log('Error: ', status, data);
+            }).catch(function(response) {
+               console.log('Error: ', response);
+                $scope.failedMessage = response.data;
+                $scope.registerFailed = true;
             });
         }
     };

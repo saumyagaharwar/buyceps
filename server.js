@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 
 //include routes
 var routes = require('./src/server/routes/router');
-app.use('/', routes);
+app.use('/api', routes);
 
 //catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
 //error handler
 //define as the last app.use callback
 app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
+    console.log(err);
     res.send(err.message);
 });
 

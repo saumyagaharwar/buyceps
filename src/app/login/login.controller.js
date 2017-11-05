@@ -5,7 +5,7 @@ angular.module('siplApp')
     $scope.submit = function(isValid) {
         console.log($scope.login);
         if(isValid) {
-            $http.post('http://localhost:8080/authenticate', $scope.login)
+            $http.post('http://localhost:8080/api/authenticate', $scope.login)
             .then(function(response) {
                 console.log("login successfull");
                 $state.go('home');

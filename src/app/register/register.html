@@ -43,6 +43,10 @@
                                     <a href="#" class="close" data-ng-click="registerSuccess = false" aria-label="close">&times;</a>
                                     <strong>{{successMsg}}</strong>
                             </div>
+                            <div class="alert alert-danger alert-dismissable fade in" data-ng-show="registerFailed">
+                                    <a href="#" class="close" data-ng-click="registerFailed = false" aria-label="close">&times;</a>
+                                    <strong>{{failedMessage}}</strong>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -5,20 +5,19 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 var user = mongoose.model('user');
 
-exports.register = function(req, res) {
-    console.log(req.body);
+exports.register = function(req, res, next) {
     var newUser = new user(req.body);
     newUser.password = bcrypt.hashSync(req.body.password, 10);
-    console.log('user to save ', newUser);
-    newUser.save(function(err, user) {
-        if(err) {
-            return res.status(400).send({
-                message: err
-            });
-        } else {
-            user.password = undefined;
-            return res.json(user);
+
+    user.create(newUser).then(function(user){
+        user.password = undefined;
+        res.send(user);
+    }).catch(function(err) {
+        if(err.code == 11000) {
+            err.status = 409;
+            err.message = "Email Id already Exists.";
         }
+        next(err);
     });
 };
 
