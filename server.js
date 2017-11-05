@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const db = require('./src/server/config/db');
+const user = require('./src/server/models/user.server.model');
+
+app.set('superSecret', 'buycepsdotcomsecret');
 
 //parse incoming requests
 app.use(bodyParser.json());

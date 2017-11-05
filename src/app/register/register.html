@@ -14,7 +14,7 @@
                         <form name="registerForm" ng-submit="submit(registerForm.$valid)" ng-controller="registerController" novalidate>
                             <div class="form-group" ng-class="{'has-error':registerForm.name.$invalid && !registerForm.name.$pristine}">
                                 <label class="sr-only" for="name">Name:</label>
-                                <input class="form-control" ng-model="user.name" type="text" name="name" id="name" placeholder="Enter Name" required>
+                                <input class="form-control" ng-model="user.name" type="text" name="name" id="name" placeholder="Enter your Full Name" required>
                                 <p ng-show="registerForm.name.$invalid && !registerForm.name.$pristine" class="help-block">Name is required</p>
                             </div>
                             <div class="form-group" ng-class="{'has-error':registerForm.email.$invalid && !registerForm.email.$pristine}">
@@ -29,15 +29,19 @@
                                 </div>
                             <div class="form-group" ng-class="{'has-error': registerForm.password.$invalid && !registerForm.password.$pristine}">
                                 <label class="sr-only" for="password">Passowrd:</label>
-                                <input class="form-control" ng-model="user.password" type="password" name="password" id="password" placeholder="Password" ng-minlength="8" required>
+                                <input class="form-control" ng-model="user.password" type="password" name="password" id="password" placeholder="Minimum 8 characters" ng-minlength="8" required>
                                 <p ng-show="registerForm.password.$error.minlength" class="help-block">Password is too short</p>
                             </div>
-                            <button type="submit" class="btn btn-warning btn-block" ng-disabled="registerForm.$invalid">Submit</button>
+                            <button type="submit" class="btn btn-theme btn-block" ng-disabled="registerForm.$invalid">Submit</button>
                             <div class="text-center">
                                 <div class="divider-line">
                                     <div class="divider-text">Already a User?</div>
                                 </div>
                                 <a ui-sref="login">Sign In</a>
+                            </div>
+                            <div class="alert alert-success alert-dismissable fade in" data-ng-show="registerSuccess">
+                                    <a href="#" class="close" data-ng-click="registerSuccess = false" aria-label="close">&times;</a>
+                                    <strong>{{successMsg}}</strong>
                             </div>
                         </form>
                     </div>
