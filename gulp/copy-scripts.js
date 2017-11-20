@@ -10,5 +10,10 @@ module.exports = function(gulp, conf, path) {
             path.join(conf.paths.modules, 'angular-ui-bootstrap/dist/**/ui-bootstrap.js')
         ])
         .pipe(gulp.dest(path.join(conf.paths.build, '/scripts')));
+      
+      gulp.src([
+        path.join(conf.paths.modules, 'bootstrap/fonts/**')
+      ])
+      .pipe(gulp.dest(path.join(conf.paths.build, '/fonts')));
     };
 };
