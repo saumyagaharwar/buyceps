@@ -1,4 +1,4 @@
-angular.module('siplApp')
+angular.module('buycepsApp')
 .config(function($stateProvider, $urlRouterProvider) {
     console.log("Routing");
 

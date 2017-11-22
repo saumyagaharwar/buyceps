@@ -1,4 +1,4 @@
-angular.module('siplApp')
+angular.module('buycepsApp')
 .controller('registerController', ['$scope', '$http', function($scope, $http) {
     console.log("registerController");
 

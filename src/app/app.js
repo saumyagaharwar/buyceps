@@ -1,1 +1,1 @@
-angular.module('siplApp', ['ui.router']);
+angular.module('buycepsApp', ['ui.router']);

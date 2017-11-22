@@ -1,4 +1,4 @@
-angular.module('siplApp')
+angular.module('buycepsApp')
 .controller('loginController', [ '$scope', '$http','$state', function($scope, $http, $state) {
     console.log("loginController");
 
