@@ -8,7 +8,7 @@ var user = mongoose.model('user');
 exports.register = function(req, res, next) {
     var newUser = new user(req.body);
     newUser.password = bcrypt.hashSync(req.body.password, 10);
-
+    
     user.create(newUser).then(function(user){
         user.password = undefined;
         res.send(user);
@@ -30,7 +30,8 @@ exports.signIn = function(req, res) {
         return res.status(401).json({ message: 'Authentication failed. Invalid user or password.' });
       }
       const payload = {
-        email: user.email
+        id: user._id,
+        isAdmin: user.isAdmin
       };
 
       var token = jwt.sign(payload, 'buycepsdotcomsecret', {
@@ -44,6 +45,12 @@ exports.signIn = function(req, res) {
       });
     });
   };
+
+  exports.getUser = function(req, res, next) {
+    return res.json({
+      message: "token valid"
+    });
+  }
   
   exports.loginRequired = function(req, res, next) {
     if (req.user) {

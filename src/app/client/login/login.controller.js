@@ -8,7 +8,11 @@ angular.module('siplApp')
             $http.post('http://localhost:8080/api/authenticate', $scope.login)
             .then(function(response) {
                 console.log("login successfull");
-                $state.go('home');
+                if(response.data.isAdmin) {
+                  $state.go('admin');
+                } else {
+                  $state.go('home');  
+                }
             }).catch(function(data, status) {
                 console.log('Error: ', status, data);
                 $scope.errorMessage = "Invalid email or password !"

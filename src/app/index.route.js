@@ -8,16 +8,21 @@ angular.module('siplApp')
 
         .state('login', {
             url: '/login',
-            templateUrl: 'login/login.html'
+            templateUrl: 'client/login/login.html'
         })
 
         .state('register', {
             url: '/register',
-            templateUrl: 'register/register.html'
+            templateUrl: 'client/register/register.html'
         })
 
         .state('home', {
             url: '/home',
-            templateUrl: 'navigation/navigation.html'
+            templateUrl: 'client/navigation/navigation.html'
+        })
+      
+        .state('admin', {
+          url: '/admin',
+          templateUrl: 'admin/admin.html'
         });
 });
