@@ -5,13 +5,13 @@ angular.module('buycepsApp')
     $scope.submit = function(isValid) {
         console.log($scope.login);
         if(isValid) {
-            $http.post('http://localhost:8080/api/authenticate', $scope.login)
+            $http.post('http://port-8080.buyceps-abhikrsingh05446337.codeanyapp.com/api/authenticate', $scope.login)
             .then(function(response) {
                 console.log("login successfull");
                 if(response.data.isAdmin) {
                   $state.go('admin');
                 } else {
-                  $state.go('home');  
+                  $state.go('app.home');  
                 }
             }).catch(function(data, status) {
                 console.log('Error: ', status, data);

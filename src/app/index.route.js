@@ -16,9 +16,14 @@ angular.module('buycepsApp')
             templateUrl: 'client/register/register.html'
         })
 
-        .state('home', {
-            url: '/home',
+        .state('app', {
+            url: '/app',
             templateUrl: 'client/navigation/navigation.html'
+        })
+        
+        .state('app.home', {
+            url: '/home',
+            templateUrl: 'client/home/home.html'
         })
       
         .state('admin', {
