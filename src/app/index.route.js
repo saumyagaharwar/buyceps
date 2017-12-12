@@ -2,7 +2,7 @@ angular.module('buycepsApp')
 .config(function($stateProvider, $urlRouterProvider) {
     console.log("Routing");
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/app');
 
     $stateProvider
 
@@ -22,8 +22,14 @@ angular.module('buycepsApp')
         })
         
         .state('app.home', {
+            resolve: { productPage : function() { return true } },
             url: '/home',
             templateUrl: 'client/home/home.html'
+        })
+      
+       .state('app.product', {
+            url: '/product',
+            templateUrl: 'client/product/product.html'
         })
       
         .state('admin', {

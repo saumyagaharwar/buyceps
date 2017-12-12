@@ -1,0 +1,57 @@
+<div class = "container" ng-controller="productController">
+ <div class = "row" style="background-color:FloralWhite;margin-top:25px; " align="center">
+   <div class ="row" >
+    <div class = "col-md-5">
+      <p ng-bind = "productDetails.name"> </p>
+    </div>
+    </div>
+   <div class ="row">
+   
+    <div class = "col-md-4" >
+    <div class="carousel slide" data-ride="carousel" id="slider" style="margin-left: 20px;">
+       <ol class="carousel-indicators">
+                <li data-target="#slider" data-slide-to="{{$index+1}}" class="active"></li>
+                 
+            </ol>
+    <div class="carousel-inner" ng-repeat="x in slides" >
+        <div class="item" ng-class="{'active': $index == 0}" >
+            <img ng-src="{{ x.image }}" class="img-responsive">
+        </div>
+    </div>
+
+    
+
+</div>
+</div>
+       <div class = "col-md-6" align = "right">
+      <p ng-bind = "productDetails.name">
+      </p>
+         <p ng-bind = "productDetails.description">
+      </p>
+         <p ng-bind = "productDetails.category">
+      </p>
+         <p ng-bind = "productDetails.price">   
+      </p>
+         <p ng-bind = "productDetails.category">
+      </p>
+      
+      </div></div>
+<div class ="row">
+  <!-- Empty row div -->
+  
+   </div>
+  </div>
+  
+  <div class = "row" style ="float: right; ">
+    <a id = "cartBtn" class="btn btn-default btn-lg" ng-click = "cartBtn()">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+        </a>
+    <a href="#" class="btn btn-default btn-lg" >
+           <span >
+    <!--<img class="manImg" style = "float :left;" align= "center" src="images/logo.PNG" height = "20" width = "20"></img> -->
+  </span>Buy Now
+        </a>
+    
+  </div>
+   
+      </div>
