@@ -20,9 +20,13 @@ angular.module('buycepsApp').controller("productController", function($scope , $
   ];
  $scope.cartBtn = function() {
   
-   //var val = document.getElementById("cartQty").innerHTML;
-   //var newVal = parseInt(val,10) +1;
-   document.getElementById("cartQty").innerHTML = 1;
+   var val = document.getElementById("cartQty").innerHTML;
+   if (val == null)
+     {
+       document.getElementById("cartQty").innerHTML = 1;
+     }
+   var newVal = +val +1;
+   document.getElementById("cartQty").innerHTML = newVal;
    document.getElementById("cartQty").style.display="block";
 };
   
